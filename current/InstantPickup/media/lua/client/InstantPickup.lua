@@ -1,14 +1,7 @@
 require "TimedActions/ISBaseTimedAction"
 
-ISInventoryTransferAction = ISInventoryTransferAction:derive("ISInventoryTransferAction")
+local originalISInventoryTransferActionNew = ISInventoryTransferAction.new
 
-function ISInventoryTransferAction:isValid()
-	return true;
-end
-
-function ISInventoryTransferAction:new(character, item, srcContainer, destContainer, time)
-	local o = {}
-	o.maxTime = 1
-
-	return o
+function ISInventoryTransferAction:new (character, item, srcContainer, destContainer, time)
+ 	return originalISInventoryTransferActionNew(self, character, item, srcContainer, destContainer, 1)
 end
